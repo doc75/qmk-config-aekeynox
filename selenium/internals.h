@@ -127,60 +127,60 @@
 
 // Thumb key definitions
 #if defined HT_NONE
-#    define AS_TL_TUCK KC_LALT
+#    define LTHUMB_TUCK KC_LALT
 #    ifdef MAC_MODIFIERS
-#        define AS_TL_HOME  KC_LGUI
-#        define AS_TL_REACH KC_LCTL
+#        define LTHUMB_HOME  KC_LGUI
+#        define LTHUMB_REACH KC_LCTL
 #    else
-#        define AS_TL_HOME  KC_LCTL
-#        define AS_TL_REACH KC_LGUI
+#        define LTHUMB_HOME  KC_LCTL
+#        define LTHUMB_REACH KC_LGUI
 #    endif
-#    define AS_TR_REACH MO(_SE_NAV)
-#    define AS_TR_HOME  KC_SPC
-#    define AS_TR_TUCK  MO(_symbols)
+#    define RTHUMB_REACH MO(_SE_NAV)
+#    define RTHUMB_HOME  KC_SPC
+#    define RTHUMB_TUCK  MO(_symbols)
 
 #elif defined HT_THUMB_TAPS
-#    define AS_TL_TUCK OSM(MOD_LSFT)
+#    define LTHUMB_TUCK OSM(MOD_LSFT)
 #    ifdef MAC_MODIFIERS
-#        define AS_TL_REACH LCTL_T(_SE_REACH)
-#        define AS_TR_REACH LGUI_T(KC_ENT)
+#        define LTHUMB_REACH LCTL_T(_SE_REACH)
+#        define RTHUMB_REACH LGUI_T(KC_ENT)
 #    else
-#        define AS_TL_REACH LGUI_T(_SE_REACH)
-#        define AS_TR_REACH LALT_T(KC_ENT)
+#        define LTHUMB_REACH LGUI_T(_SE_REACH)
+#        define RTHUMB_REACH LALT_T(KC_ENT)
 #    endif
-#    define AS_TR_TUCK OSL(_symbols)
+#    define RTHUMB_TUCK OSL(_symbols)
 #    ifdef LEFT_HAND_SPACE
-#        define AS_TL_HOME _CTL_T(KC_SPC)
-#        define AS_TR_HOME LT(_SE_NAV, KC_BSPC)
+#        define LTHUMB_HOME _CTL_T(KC_SPC)
+#        define RTHUMB_HOME LT(_SE_NAV, KC_BSPC)
 #    else
-#        define AS_TL_HOME _CTL_T(KC_BSPC)
-#        define AS_TR_HOME LT(_SE_NAV, KC_SPC)
+#        define LTHUMB_HOME _CTL_T(KC_BSPC)
+#        define RTHUMB_HOME LT(_SE_NAV, KC_SPC)
 #    endif
 
 #elif defined HT_HOME_ROW_MODS
-#    define AS_TL_TUCK  OSM(MOD_LSFT)
-#    define AS_TL_REACH LT(_SE_EXTRA, _SE_REACH)
-#    define AS_TR_REACH LT(_SE_EXTRA, KC_ENT)
-#    define AS_TR_TUCK  OSL(_symbols)
+#    define LTHUMB_TUCK  OSM(MOD_LSFT)
+#    define LTHUMB_REACH LT(_SE_EXTRA, _SE_REACH)
+#    define RTHUMB_REACH LT(_SE_EXTRA, KC_ENT)
+#    define RTHUMB_TUCK  OSL(_symbols)
 #    ifdef LEFT_HAND_SPACE
-#        define AS_TL_HOME LT(_SE_NAV, KC_SPC)
-#        define AS_TR_HOME LT(_SE_NAV, KC_BSPC)
+#        define LTHUMB_HOME LT(_SE_NAV, KC_SPC)
+#        define RTHUMB_HOME LT(_SE_NAV, KC_BSPC)
 #    else
-#        define AS_TL_HOME LT(_SE_NAV, KC_BSPC)
-#        define AS_TR_HOME LT(_SE_NAV, KC_SPC)
+#        define LTHUMB_HOME LT(_SE_NAV, KC_BSPC)
+#        define RTHUMB_HOME LT(_SE_NAV, KC_SPC)
 #    endif
 
 #elif defined HT_TWO_THUMB_KEYS
-#    define AS_TL_TUCK  LSFT_T(_SE_REACH)
-#    define AS_TL_REACH AS_TL_TUCK
-#    define AS_TR_REACH LT(_symbols, KC_ENT)
-#    define AS_TR_TUCK  AS_TR_REACH
+#    define LTHUMB_TUCK  LSFT_T(_SE_REACH)
+#    define LTHUMB_REACH LTHUMB_TUCK
+#    define RTHUMB_REACH LT(_symbols, KC_ENT)
+#    define RTHUMB_TUCK  RTHUMB_REACH
 #    ifdef LEFT_HAND_SPACE
-#        define AS_TL_HOME LT(_SE_NAV, KC_SPC)
-#        define AS_TR_HOME LT(_SE_EXTRA, KC_BSPC)
+#        define LTHUMB_HOME LT(_SE_NAV, KC_SPC)
+#        define RTHUMB_HOME LT(_SE_EXTRA, KC_BSPC)
 #    else
-#        define AS_TL_HOME LT(_SE_NAV, KC_BSPC)
-#        define AS_TR_HOME LT(_SE_S34, KC_SPC)
+#        define LTHUMB_HOME LT(_SE_NAV, KC_BSPC)
+#        define RTHUMB_HOME LT(_SE_S34, KC_SPC)
 #    endif
 
 #endif

@@ -47,29 +47,29 @@
 
 // Extra simple config for beginners with bigger keyboards
 #if defined SIMPLE_THUMBS
-#    define AS_TL_TUCK  _ALT
-#    define AS_TL_HOME  _CTL
-#    define AS_TL_REACH _GUI
-#    define AS_TR_REACH MO(_num_nav)
-#    define AS_TR_HOME  KC_SPC
-#    define AS_TR_TUCK  SYMBOLS
+#    define LTHUMB_TUCK  _ALT
+#    define LTHUMB_HOME  _CTL
+#    define LTHUMB_REACH _GUI
+#    define RTHUMB_REACH MO(_num_nav)
+#    define RTHUMB_HOME  KC_SPC
+#    define RTHUMB_TUCK  SYMBOLS
 #elif defined VIM_NAVIGATION
-#    define AS_TL_REACH XX
-#    define AS_TR_REACH XX
-#    define AS_TL_TUCK  LSFT_T(KC_ESC)
-#    define AS_TR_TUCK  SYMBOLS_T(KC_ENT)
+#    define LTHUMB_REACH XX
+#    define RTHUMB_REACH XX
+#    define LTHUMB_TUCK  LSFT_T(KC_ESC)
+#    define RTHUMB_TUCK  SYMBOLS_T(KC_ENT)
 #    if defined LEFT_HAND_SPACE
-#        define AS_TL_HOME LT(_vim_nav, KC_SPC)
-#        define AS_TR_HOME LT(_num_row, KC_BSPC)
+#        define LTHUMB_HOME LT(_vim_nav, KC_SPC)
+#        define RTHUMB_HOME LT(_num_row, KC_BSPC)
 #    else
-#        define AS_TL_HOME LT(_vim_nav, KC_BSPC)
-#        define AS_TR_HOME LT(_num_row, KC_SPC)
+#        define LTHUMB_HOME LT(_vim_nav, KC_BSPC)
+#        define RTHUMB_HOME LT(_num_row, KC_SPC)
 #    endif
 #else
-#    define AS_TL_TUCK  LSFT_T(KC_BSPC)
-#    define AS_TL_HOME  LT(_num_nav, KC_BSPC)
-#    define AS_TL_REACH XX
-#    define AS_TR_REACH XX
-#    define AS_TR_HOME  AS_TL_HOME
-#    define AS_TR_TUCK  SYMBOLS_T(KC_ENT)
+#    define LTHUMB_TUCK  LSFT_T(KC_BSPC)
+#    define LTHUMB_HOME  LT(_num_nav, KC_BSPC)
+#    define LTHUMB_REACH XX
+#    define RTHUMB_REACH XX
+#    define RTHUMB_HOME  LTHUMB_HOME
+#    define RTHUMB_TUCK  SYMBOLS_T(KC_ENT)
 #endif

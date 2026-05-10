@@ -210,10 +210,10 @@ generate_keymap() {
     log_info "Using keymap source: ${CYAN}$src${NC}"
 
     log_info "Copying shared files to output directory..."
-    rsync -a "$SCRIPT_DIR/shared/" "$output_dir"
+    cp -R "$SCRIPT_DIR/shared/." "$output_dir/"
 
     log_info "Copying keymap files to output directory..."
-    rsync -a "$src/" "$output_dir"
+    cp -R "$src/." "$output_dir/"
 
     # Flatten include paths (../shared/ -> same directory).
     # `-i.bak` is the only in-place form accepted by both GNU and BSD sed (macOS).
@@ -248,8 +248,8 @@ if [ "$copy_keymap" = true ]; then
         rm -rf "$dest_dir"
     fi
     log_info "Copying ${CYAN}$output_dir${NC} to ${CYAN}$dest_dir${NC} ..."
-    mkdir -p "$(dirname "$dest_dir")"
-    rsync -a "$output_dir/" "$dest_dir"
+    mkdir -p "$dest_dir"
+    cp -R "$output_dir/." "$dest_dir/"
     log_success "Copied keymap to ${CYAN}$dest_dir${NC}"
     log_info "Finally, you may want to :"
     log_info "    cd $dest_dir"

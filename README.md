@@ -9,10 +9,6 @@
 
 ## Getting started
 
-### Prerequisites
-
-- `rsync` — required by `generator.sh` to assemble the keymap output
-
 ### 1. Install QMK
 
 Follow the [QMK getting started guide](https://docs.qmk.fm/newbs_getting_started) for your OS, then:

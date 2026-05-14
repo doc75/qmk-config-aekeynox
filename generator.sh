@@ -149,9 +149,9 @@ detect_layout_name() {
         keymap_folder=$(get_keymaps_folder "$keyboard_model" "$keymap")
 
         if [ -f "$keymap_folder/keymap.c" ]; then
-            layout=$(grep 'LAYOUT' "$keymap_folder/keymap.c" | sed 's/.*= \(.*\)(/\1/' | head -n 1)
+            layout=$(sed -n 's/.*= *\([A-Za-z_][A-Za-z0-9_]*\)(.*/\1/p' "$keymap_folder/keymap.c" | head -n 1)
         elif [ -f "$keymap_folder/keymap.json" ]; then
-            layout=$(grep 'LAYOUT' "$keymap_folder/keymap.json" | sed 's/ *\"layout\": \"\(.*\)\",/\1/')
+            layout=$(sed -n 's/.*"layout": *"\([^"]*\)".*/\1/p' "$keymap_folder/keymap.json" | head -n 1)
         fi
 
         if [ "$layout" = "LAYOUT" ]; then
@@ -210,10 +210,10 @@ generate_keymap() {
     log_info "Using keymap source: ${CYAN}$src${NC}"
 
     log_info "Copying shared files to output directory..."
-    rsync -a "$SCRIPT_DIR/shared/" "$output_dir"
+    cp -R "$SCRIPT_DIR/shared/." "$output_dir/"
 
     log_info "Copying keymap files to output directory..."
-    rsync -a "$src/" "$output_dir"
+    cp -R "$src/." "$output_dir/"
 
     # Flatten include paths (../shared/ -> same directory).
     # `-i.bak` is the only in-place form accepted by both GNU and BSD sed (macOS).
@@ -248,8 +248,8 @@ if [ "$copy_keymap" = true ]; then
         rm -rf "$dest_dir"
     fi
     log_info "Copying ${CYAN}$output_dir${NC} to ${CYAN}$dest_dir${NC} ..."
-    mkdir -p "$(dirname "$dest_dir")"
-    rsync -a "$output_dir/" "$dest_dir"
+    mkdir -p "$dest_dir"
+    cp -R "$output_dir/." "$dest_dir/"
     log_success "Copied keymap to ${CYAN}$dest_dir${NC}"
     log_info "Finally, you may want to :"
     log_info "    cd $dest_dir"
